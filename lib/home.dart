@@ -32,24 +32,57 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(right: 15),
-            child: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              iconSize: 25,
-              icon: const Icon(Icons.notifications),
-              onPressed: () {},
-            ),
+            margin: const EdgeInsets.only(top: 15, right: 15),
+            child: Stack(children: <Widget>[
+              IconButton(
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+                iconSize: 25,
+                icon: const Icon(Icons.notifications),
+                onPressed: () {},
+              ),
+              Positioned(
+                top: 0.0,
+                right: 0.0,
+                child: Container(
+                  padding: const EdgeInsets.all(1),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFDB3157),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  constraints: const BoxConstraints(
+                    minWidth: 15,
+                    minHeight: 10,
+                  ),
+                  child: const Text(
+                    '6+',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 8,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              )
+            ]),
           ),
           Container(
-            margin: const EdgeInsets.only(right: 17),
-            child: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              iconSize: 25,
-              icon: const Icon(Icons.favorite_border),
-              onPressed: () {},
-            ),
+            margin: const EdgeInsets.only(top: 15, right: 17),
+            child: Stack(children: <Widget>[
+              IconButton(
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+                iconSize: 25,
+                icon: const Icon(Icons.favorite_border),
+                onPressed: () {},
+              ),
+              const Positioned(
+                top: 0.0,
+                right: -0.5,
+                child: Icon(Icons.brightness_1,
+                    size: 10.0, color: Color(0xFFDB3157)),
+              )
+            ]),
           ),
         ],
       ),
