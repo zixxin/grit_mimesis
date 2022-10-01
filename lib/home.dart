@@ -11,8 +11,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -107,7 +105,7 @@ Widget TitleSection(BuildContext context) {
     children: <Widget>[
       Container(
         width: width,
-        height: 300,
+        height: 350,
         decoration: const BoxDecoration(
           color: Color(0xFF141414),
         ),
@@ -189,7 +187,7 @@ Widget TitleSection(BuildContext context) {
               ),
             ),
             Container(
-              padding: const EdgeInsets.only(top: 85, left: 15),
+              padding: const EdgeInsets.only(top: 130, left: 15),
               child: DotsIndicator(
                 dotsCount: 4,
                 position: 1,
