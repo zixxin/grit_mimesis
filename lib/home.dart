@@ -96,40 +96,62 @@ class _HomePageState extends State<HomePage> {
             decoration: const BoxDecoration(
               color: Color(0xFF141414),
             ),
-            child: Row(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: const Color(0xFFE2FD7E),
-                      width: 1,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color(0xFFE2FD7E),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      margin: const EdgeInsets.only(top: 20, left: 15),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 6.0, horizontal: 12.0),
+                      child: const Text(
+                        '#출시성공',
+                        style:
+                            TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  margin: const EdgeInsets.only(top: 20, left: 15),
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 6.0, horizontal: 12.0),
-                  child: const Text(
-                    '#출시성공',
-                    style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
-                  ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color(0xFFE2FD7E),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      margin: const EdgeInsets.only(top: 20, left: 8),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 6.0, horizontal: 12.0),
+                      child: const Text(
+                        '#고생끝에낙이온다',
+                        style:
+                            TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
+                      ),
+                    ),
+                  ],
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    border: Border.all(
-                      color: const Color(0xFFE2FD7E),
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(30),
+                    color: const Color(0xFF313233),
+                    borderRadius: BorderRadius.circular(7),
                   ),
-                  margin: const EdgeInsets.only(top: 20, left: 8),
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 6.0, horizontal: 12.0),
+                  margin: const EdgeInsets.only(top: 30, left: 15),
+                  padding: const EdgeInsets.only(
+                      top: 3.0, bottom: 5.0, left: 8.0, right: 11.0),
                   child: const Text(
-                    '#고생끝에낙이온다',
+                    '💰 금융',
                     style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ],
