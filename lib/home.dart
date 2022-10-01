@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -152,6 +153,45 @@ class _HomePageState extends State<HomePage> {
                     '💰 금융',
                     style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
                     textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 20, left: 15),
+                  child: const Text(
+                    '저축 습관 앱 런칭기',
+                    style: TextStyle(
+                        letterSpacing: 0.5,
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 10, left: 15),
+                  child: const Text(
+                    '160일의 여정을 돌아보며...',
+                    style: TextStyle(
+                        letterSpacing: 0.5,
+                        color: Color(0xFF929292),
+                        fontSize: 12),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.only(top: 85, left: 15),
+                  child: DotsIndicator(
+                    dotsCount: 4,
+                    position: 1,
+                    decorator: DotsDecorator(
+                      spacing: const EdgeInsets.all(4.0),
+                      color: const Color(0xFF6E6E6E),
+                      size: const Size.square(5.0),
+                      activeSize: const Size.square(5.0),
+                      activeColor: const Color(0xFFDBF87A),
+                      activeShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0)),
+                    ),
                   ),
                 ),
               ],
