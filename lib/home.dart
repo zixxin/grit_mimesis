@@ -91,114 +91,122 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Container(
-            width: width,
-            height: 300,
-            decoration: const BoxDecoration(
-              color: Color(0xFF141414),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: const Color(0xFFE2FD7E),
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      margin: const EdgeInsets.only(top: 20, left: 15),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 6.0, horizontal: 12.0),
-                      child: const Text(
-                        '#출시성공',
-                        style:
-                            TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: const Color(0xFFE2FD7E),
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      margin: const EdgeInsets.only(top: 20, left: 8),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 6.0, horizontal: 12.0),
-                      child: const Text(
-                        '#고생끝에낙이온다',
-                        style:
-                            TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF313233),
-                    borderRadius: BorderRadius.circular(7),
-                  ),
-                  margin: const EdgeInsets.only(top: 30, left: 15),
-                  padding: const EdgeInsets.only(
-                      top: 3.0, bottom: 5.0, left: 8.0, right: 11.0),
-                  child: const Text(
-                    '💰 금융',
-                    style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 20, left: 15),
-                  child: const Text(
-                    '저축 습관 앱 런칭기',
-                    style: TextStyle(
-                        letterSpacing: 0.5,
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 10, left: 15),
-                  child: const Text(
-                    '160일의 여정을 돌아보며...',
-                    style: TextStyle(
-                        letterSpacing: 0.5,
-                        color: Color(0xFF929292),
-                        fontSize: 12),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.only(top: 85, left: 15),
-                  child: DotsIndicator(
-                    dotsCount: 4,
-                    position: 1,
-                    decorator: DotsDecorator(
-                      spacing: const EdgeInsets.all(4.0),
-                      color: const Color(0xFF6E6E6E),
-                      size: const Size.square(5.0),
-                      activeSize: const Size.square(5.0),
-                      activeColor: const Color(0xFFDBF87A),
-                      activeShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0)),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          TitleSection(context),
         ],
       ),
     );
   }
+}
+
+Widget TitleSection(BuildContext context) {
+  double width = MediaQuery.of(context).size.width;
+
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      Container(
+        width: width,
+        height: 300,
+        decoration: const BoxDecoration(
+          color: Color(0xFF141414),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: const Color(0xFFE2FD7E),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  margin: const EdgeInsets.only(top: 20, left: 15),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 6.0, horizontal: 12.0),
+                  child: const Text(
+                    '#출시성공',
+                    style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: const Color(0xFFE2FD7E),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  margin: const EdgeInsets.only(top: 20, left: 8),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 6.0, horizontal: 12.0),
+                  child: const Text(
+                    '#고생끝에낙이온다',
+                    style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: const Color(0xFF313233),
+                borderRadius: BorderRadius.circular(7),
+              ),
+              margin: const EdgeInsets.only(top: 30, left: 15),
+              padding: const EdgeInsets.only(
+                  top: 3.0, bottom: 5.0, left: 8.0, right: 11.0),
+              child: const Text(
+                '💰 금융',
+                style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 20, left: 15),
+              child: const Text(
+                '저축 습관 앱 런칭기',
+                style: TextStyle(
+                    letterSpacing: 0.5,
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 10, left: 15),
+              child: const Text(
+                '160일의 여정을 돌아보며...',
+                style: TextStyle(
+                    letterSpacing: 0.5, color: Color(0xFF929292), fontSize: 12),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(top: 85, left: 15),
+              child: DotsIndicator(
+                dotsCount: 4,
+                position: 1,
+                decorator: DotsDecorator(
+                  spacing: const EdgeInsets.all(4.0),
+                  color: const Color(0xFF6E6E6E),
+                  size: const Size.square(5.0),
+                  activeSize: const Size.square(5.0),
+                  activeColor: const Color(0xFFDBF87A),
+                  activeShape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0)),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+  );
 }
