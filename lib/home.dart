@@ -325,23 +325,6 @@ Widget ProjectSection(BuildContext context) {
         ],
       ),
       Container(
-        alignment: Alignment.center,
-        padding: const EdgeInsets.only(top: 20, left: 15),
-        child: DotsIndicator(
-          dotsCount: 3,
-          position: 0,
-          decorator: DotsDecorator(
-            spacing: const EdgeInsets.all(4.0),
-            color: const Color(0xFFE8E8E3),
-            size: const Size.square(5.0),
-            activeSize: const Size.square(5.0),
-            activeColor: const Color(0xFFDBF87A),
-            activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0)),
-          ),
-        ),
-      ),
-      Container(
         margin: const EdgeInsets.only(top: 20),
         child: const Divider(
           thickness: 12.0,
@@ -369,23 +352,6 @@ Widget ProjectSection(BuildContext context) {
             ),
           ),
         ],
-      ),
-      Container(
-        alignment: Alignment.center,
-        padding: const EdgeInsets.only(top: 20, left: 15),
-        child: DotsIndicator(
-          dotsCount: 3,
-          position: 0,
-          decorator: DotsDecorator(
-            spacing: const EdgeInsets.all(4.0),
-            color: const Color(0xFFE8E8E3),
-            size: const Size.square(5.0),
-            activeSize: const Size.square(5.0),
-            activeColor: const Color(0xFFDBF87A),
-            activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0)),
-          ),
-        ),
       ),
       Container(
         margin: const EdgeInsets.only(top: 20),
