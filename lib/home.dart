@@ -168,7 +168,7 @@ Widget TitleSection(BuildContext context) {
             Stack(
               children: <Widget>[
                 Container(
-                  margin: const EdgeInsets.only(left: 190, top: 50),
+                  margin: const EdgeInsets.only(left: 190, top: 62.7),
                   child: Image.asset('image/money.png', width: 200),
                 ),
                 Column(
