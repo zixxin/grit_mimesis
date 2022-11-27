@@ -320,6 +320,44 @@ Widget moreButton() {
   );
 }
 
+Widget titleInImage(String title, String subtitle) {
+  return Row(
+    children: [
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 110,
+            margin: const EdgeInsets.only(top: 30, left: 12),
+            child: Text(
+              title,
+              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 5, left: 12),
+            child: Text(
+              style: const TextStyle(fontSize: 12),
+              subtitle,
+            ),
+          ),
+        ],
+      ),
+      Container(
+        margin: const EdgeInsets.only(top: 15, left: 12, right: 10),
+        child: IconButton(
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(),
+          iconSize: 25,
+          icon: const Icon(Icons.favorite_border),
+          onPressed: () {},
+        ),
+      ),
+    ],
+  );
+}
+
 Widget projectTitleSection(String title, String subtitle, String type) {
   return Column(
     children: [
@@ -341,42 +379,7 @@ Widget projectTitleSection(String title, String subtitle, String type) {
               fontWeight: FontWeight.bold),
         ),
       ),
-      Row(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: 110,
-                margin: const EdgeInsets.only(top: 30, left: 12),
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                      fontSize: 13, fontWeight: FontWeight.bold),
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 5, left: 12),
-                child: Text(
-                  style: const TextStyle(fontSize: 12),
-                  subtitle,
-                ),
-              ),
-            ],
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 15, left: 12, right: 10),
-            child: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              iconSize: 25,
-              icon: const Icon(Icons.favorite_border),
-              onPressed: () {},
-            ),
-          ),
-        ],
-      ),
+      titleInImage(title, subtitle),
     ],
   );
 }
