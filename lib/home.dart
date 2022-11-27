@@ -320,10 +320,72 @@ Widget moreButton() {
   );
 }
 
-Widget projectImgSection(String title, String subtitle, String image) {
+Widget projectTitleSection(String title, String subtitle, String type) {
+  return Column(
+    children: [
+      Container(
+        padding: const EdgeInsets.only(left: 10),
+        alignment: Alignment.centerLeft,
+        width: 170,
+        height: 30,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+          color: Colors.black,
+        ),
+        child: Text(
+          type,
+          style: const TextStyle(
+              fontSize: 12,
+              color: Color(0xFFDBF87A),
+              fontWeight: FontWeight.bold),
+        ),
+      ),
+      Row(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 110,
+                margin: const EdgeInsets.only(top: 30, left: 12),
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                      fontSize: 13, fontWeight: FontWeight.bold),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 5, left: 12),
+                child: Text(
+                  style: const TextStyle(fontSize: 12),
+                  subtitle,
+                ),
+              ),
+            ],
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 15, left: 12, right: 10),
+            child: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              iconSize: 25,
+              icon: const Icon(Icons.favorite_border),
+              onPressed: () {},
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
+}
+
+Widget projectImgSection(
+    String title, String subtitle, String image, String type) {
   return Container(
     width: 170,
-    height: 90,
+    height: 110,
     decoration: BoxDecoration(
       borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(10), topRight: Radius.circular(10)),
@@ -335,42 +397,7 @@ Widget projectImgSection(String title, String subtitle, String image) {
         image: AssetImage(image),
       ),
     ),
-    child: Row(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 110,
-              margin: const EdgeInsets.only(top: 40, left: 12),
-              child: Text(
-                title,
-                style:
-                    const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 5, left: 12),
-              child: Text(
-                style: const TextStyle(fontSize: 12),
-                subtitle,
-              ),
-            ),
-          ],
-        ),
-        Container(
-          margin: const EdgeInsets.only(top: 10, left: 12, right: 10),
-          child: IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            iconSize: 25,
-            icon: const Icon(Icons.favorite_border),
-            onPressed: () {},
-          ),
-        ),
-      ],
-    ),
+    child: projectTitleSection(title, subtitle, type),
   );
 }
 
@@ -414,10 +441,10 @@ Widget infoSection(String title, String subtitle, String job, String desc,
 }
 
 Widget projectCard(String title, String subtitle, String job, String desc,
-    String day, String image) {
+    String day, String image, String type) {
   return Container(
     width: 170,
-    height: 195,
+    height: 215,
     decoration: BoxDecoration(
       boxShadow: [
         BoxShadow(
@@ -434,7 +461,7 @@ Widget projectCard(String title, String subtitle, String job, String desc,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        projectImgSection(title, subtitle, image),
+        projectImgSection(title, subtitle, image, type),
         infoSection(title, subtitle, job, desc, day, image),
       ],
     ),
@@ -456,12 +483,18 @@ Widget projects() {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          projectCard('공유 킥보드 서비스', '초기 기획, 서울 마포구', 'UI 디자이너',
-              'Adobe XD, Design system', 'D-23', 'image/project1.jpeg'),
+          projectCard(
+              '공유 킥보드 서비스',
+              '초기 기획, 서울 마포구',
+              'UI 디자이너',
+              'Adobe XD, Design system',
+              'D-23',
+              'image/project1.jpeg',
+              '📱 IT, C2C'),
           Container(
             margin: const EdgeInsets.only(right: 15),
             child: projectCard('AI 기반의 전기차 충전 서비스', '팀원 모집, 세종시', '서비스 기획자',
-                'IA, 기능 정비', 'D-41', 'image/project2.jpeg'),
+                'IA, 기능 정비', 'D-41', 'image/project2.jpeg', '⚡️ 모빌리티, B2C'),
           ),
         ],
       ),
