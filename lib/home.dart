@@ -19,71 +19,7 @@ class _HomePageState extends State<HomePage> {
           child: Image.asset('image/logo.png'),
         ),
         backgroundColor: const Color(0xFF141414),
-        actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 15),
-            child: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              iconSize: 25,
-              icon: const Icon(Icons.search),
-              onPressed: () {},
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 15, right: 15),
-            child: Stack(children: <Widget>[
-              IconButton(
-                padding: EdgeInsets.zero,
-                constraints: const BoxConstraints(),
-                iconSize: 25,
-                icon: const Icon(Icons.notifications),
-                onPressed: () {},
-              ),
-              Positioned(
-                top: 0.0,
-                right: 0.0,
-                child: Container(
-                  padding: const EdgeInsets.all(1),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFDB3157),
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  constraints: const BoxConstraints(
-                    minWidth: 15,
-                    minHeight: 10,
-                  ),
-                  child: const Text(
-                    '6+',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 8,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              )
-            ]),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 15, right: 17),
-            child: Stack(children: <Widget>[
-              IconButton(
-                padding: EdgeInsets.zero,
-                constraints: const BoxConstraints(),
-                iconSize: 25,
-                icon: const Icon(Icons.favorite_border),
-                onPressed: () {},
-              ),
-              const Positioned(
-                top: 0.0,
-                right: -0.5,
-                child: Icon(Icons.brightness_1,
-                    size: 10.0, color: Color(0xFFDB3157)),
-              )
-            ]),
-          ),
-        ],
+        actions: [appBarIcon()],
       ),
       body: ListView(
         children: [
@@ -91,8 +27,8 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              TitleSection(context),
-              ProjectSection(context),
+              titleSection(context),
+              projectSection(),
             ],
           ),
         ],
@@ -101,7 +37,77 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-Widget TitleSection(BuildContext context) {
+Widget appBarIcon() {
+  return Row(
+    children: <Widget>[
+      Container(
+        margin: const EdgeInsets.only(right: 15),
+        child: IconButton(
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(),
+          iconSize: 25,
+          icon: const Icon(Icons.search),
+          onPressed: () {},
+        ),
+      ),
+      Container(
+        margin: const EdgeInsets.only(bottom: 5, right: 15),
+        child: Stack(children: <Widget>[
+          IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            iconSize: 25,
+            icon: const Icon(Icons.notifications),
+            onPressed: () {},
+          ),
+          Positioned(
+            top: 0.0,
+            right: 0.0,
+            child: Container(
+              padding: const EdgeInsets.all(1),
+              decoration: BoxDecoration(
+                color: const Color(0xFFDB3157),
+                borderRadius: BorderRadius.circular(6),
+              ),
+              constraints: const BoxConstraints(
+                minWidth: 15,
+                minHeight: 10,
+              ),
+              child: const Text(
+                '6+',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 8,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          )
+        ]),
+      ),
+      Container(
+        margin: const EdgeInsets.only(bottom: 5, right: 17),
+        child: Stack(children: <Widget>[
+          IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            iconSize: 25,
+            icon: const Icon(Icons.favorite_border),
+            onPressed: () {},
+          ),
+          const Positioned(
+            top: 0.0,
+            right: -0.5,
+            child:
+                Icon(Icons.brightness_1, size: 10.0, color: Color(0xFFDB3157)),
+          )
+        ]),
+      ),
+    ],
+  );
+}
+
+Widget titleSection(BuildContext context) {
   double width = MediaQuery.of(context).size.width;
 
   return Row(
@@ -122,38 +128,7 @@ Widget TitleSection(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: const Color(0xFFE2FD7E),
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  margin: const EdgeInsets.only(top: 20, left: 15),
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 6.0, horizontal: 12.0),
-                  child: const Text(
-                    '#출시성공',
-                    style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: const Color(0xFFE2FD7E),
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  margin: const EdgeInsets.only(top: 20, left: 8),
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 6.0, horizontal: 12.0),
-                  child: const Text(
-                    '#고생끝에낙이온다',
-                    style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
-                  ),
-                ),
+                chips(),
               ],
             ),
             Container(
@@ -170,56 +145,7 @@ Widget TitleSection(BuildContext context) {
                 textAlign: TextAlign.center,
               ),
             ),
-            Stack(
-              children: <Widget>[
-                Container(
-                  margin: const EdgeInsets.only(left: 190, top: 62.7),
-                  child: Image.asset('image/money.png', width: 200),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(top: 20, left: 15),
-                      child: const Text(
-                        '저축 습관 앱 런칭기',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 10, left: 15),
-                      child: const Text(
-                        '160일의 여정을 돌아보며...',
-                        style:
-                            TextStyle(color: Color(0xFF929292), fontSize: 12),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(top: 130, left: 15),
-                      child: DotsIndicator(
-                        dotsCount: 4,
-                        position: 1,
-                        decorator: DotsDecorator(
-                          spacing: const EdgeInsets.all(4.0),
-                          color: const Color(0xFF6E6E6E),
-                          size: const Size.square(5.0),
-                          activeSize: const Size.square(5.0),
-                          activeColor: const Color(0xFFDBF87A),
-                          activeShape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0)),
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
+            imageSection(),
           ],
         ),
       ),
@@ -227,9 +153,126 @@ Widget TitleSection(BuildContext context) {
   );
 }
 
-Widget ProjectSection(BuildContext context) {
-  double width = MediaQuery.of(context).size.width;
+Widget chips() {
+  return Row(
+    children: [
+      Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: const Color(0xFFE2FD7E),
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(30),
+        ),
+        margin: const EdgeInsets.only(top: 20, left: 15),
+        padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 12.0),
+        child: const Text(
+          '#출시성공',
+          style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
+        ),
+      ),
+      Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: const Color(0xFFE2FD7E),
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(30),
+        ),
+        margin: const EdgeInsets.only(top: 20, left: 8),
+        padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 12.0),
+        child: const Text(
+          '#고생끝에낙이온다',
+          style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
+        ),
+      ),
+    ],
+  );
+}
 
+Widget imageSection() {
+  return Row(
+    children: [
+      Stack(
+        children: <Widget>[
+          Container(
+            margin: const EdgeInsets.only(left: 190, top: 62.7),
+            child: Image.asset('image/money.png', width: 200),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 20, left: 15),
+                child: const Text(
+                  '저축 습관 앱 런칭기',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10, left: 15),
+                child: const Text(
+                  '160일의 여정을 돌아보며...',
+                  style: TextStyle(color: Color(0xFF929292), fontSize: 12),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.only(top: 130, left: 15),
+                child: DotsIndicator(
+                  dotsCount: 4,
+                  position: 1,
+                  decorator: DotsDecorator(
+                    spacing: const EdgeInsets.all(4.0),
+                    color: const Color(0xFF6E6E6E),
+                    size: const Size.square(5.0),
+                    activeSize: const Size.square(5.0),
+                    activeColor: const Color(0xFFDBF87A),
+                    activeShape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0)),
+                  ),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    ],
+  );
+}
+
+Widget projectSection() {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      projects(),
+      divider(),
+      teams(),
+      divider(),
+      letters(),
+      divider(),
+      news(),
+    ],
+  );
+}
+
+Widget divider() {
+  return Container(
+    margin: const EdgeInsets.only(top: 20),
+    child: const Divider(
+      thickness: 12.0,
+      color: Color(0xFFF1F1EB),
+    ),
+  );
+}
+
+Widget projects() {
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -295,71 +338,65 @@ Widget ProjectSection(BuildContext context) {
           ),
         ],
       ),
+    ],
+  );
+}
+
+Widget teams() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: <Widget>[
       Container(
-        margin: const EdgeInsets.only(top: 20),
-        child: const Divider(
-          thickness: 12.0,
-          color: Color(0xFFF1F1EB),
+        margin: const EdgeInsets.only(top: 20, left: 15),
+        child: const Text(
+          '팀플 스타일이 비슷한 팀원 🕵🏻‍♂️',
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(top: 20, left: 15),
-            child: const Text(
-              '팀플 스타일이 비슷한 팀원 🕵🏻‍♂️',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 20, right: 15),
-            child: const Text(
-              '모두보기',
-              style: TextStyle(
-                  fontSize: 12,
-                  color: Color(0xFFB9B9B9),
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
-      ),
       Container(
-        margin: const EdgeInsets.only(top: 20),
-        child: const Divider(
-          thickness: 12.0,
-          color: Color(0xFFF1F1EB),
+        margin: const EdgeInsets.only(top: 20, right: 15),
+        child: const Text(
+          '모두보기',
+          style: TextStyle(
+              fontSize: 12,
+              color: Color(0xFFB9B9B9),
+              fontWeight: FontWeight.bold),
         ),
       ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(top: 20, left: 15),
-            child: const Text(
-              '시작을 다짐했을 때 읽기 좋은 글 ✨',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 20, right: 15),
-            child: const Text(
-              '모두보기',
-              style: TextStyle(
-                  fontSize: 12,
-                  color: Color(0xFFB9B9B9),
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
-      ),
+    ],
+  );
+}
+
+Widget letters() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: <Widget>[
       Container(
-        margin: const EdgeInsets.only(top: 20),
-        child: const Divider(
-          thickness: 12.0,
-          color: Color(0xFFF1F1EB),
+        margin: const EdgeInsets.only(top: 20, left: 15),
+        child: const Text(
+          '시작을 다짐했을 때 읽기 좋은 글 ✨',
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ),
+      Container(
+        margin: const EdgeInsets.only(top: 20, right: 15),
+        child: const Text(
+          '모두보기',
+          style: TextStyle(
+              fontSize: 12,
+              color: Color(0xFFB9B9B9),
+              fontWeight: FontWeight.bold),
+        ),
+      ),
+    ],
+  );
+}
+
+Widget news() {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
