@@ -320,6 +320,99 @@ Widget moreButton() {
   );
 }
 
+Widget projectImgSection(String title, String subtitle, String image) {
+  return Container(
+    width: 170,
+    height: 90,
+    decoration: BoxDecoration(
+      borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+      color: const Color(0xFFF1F1EB),
+      image: DecorationImage(
+        opacity: 190.0,
+        fit: BoxFit.cover,
+        alignment: Alignment.center,
+        image: AssetImage(image),
+      ),
+    ),
+    child: Row(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 110,
+              margin: const EdgeInsets.only(top: 40, left: 12),
+              child: Text(
+                title,
+                style:
+                    const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 5, left: 12),
+              child: Text(
+                style: const TextStyle(fontSize: 12),
+                subtitle,
+              ),
+            ),
+          ],
+        ),
+        Container(
+          margin: const EdgeInsets.only(top: 10, left: 12, right: 10),
+          child: IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            iconSize: 25,
+            icon: const Icon(Icons.favorite_border),
+            onPressed: () {},
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget infoSection(String title, String subtitle, String job, String desc,
+    String day, String image) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        margin: const EdgeInsets.only(top: 15, left: 12),
+        decoration: BoxDecoration(
+          color: const Color(0xFFE1E2F8),
+          borderRadius: BorderRadius.circular(5),
+        ),
+        padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
+        child: Text(
+          day,
+          style: const TextStyle(
+              fontSize: 12,
+              color: Color(0xFF5971F6),
+              fontWeight: FontWeight.bold),
+        ),
+      ),
+      Container(
+        margin: const EdgeInsets.only(top: 15, left: 13),
+        child: Text(
+          job,
+          style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+        ),
+      ),
+      Container(
+        margin: const EdgeInsets.only(top: 5, left: 13),
+        child: Text(
+          desc,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(color: Colors.grey, fontSize: 13),
+        ),
+      ),
+    ],
+  );
+}
+
 Widget projectCard(String title, String subtitle, String job, String desc,
     String day, String image) {
   return Container(
@@ -341,87 +434,8 @@ Widget projectCard(String title, String subtitle, String job, String desc,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          width: 170,
-          height: 90,
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-            color: const Color(0xFFF1F1EB),
-            image: DecorationImage(
-              opacity: 190.0,
-              fit: BoxFit.cover,
-              alignment: Alignment.center,
-              image: AssetImage(image),
-            ),
-          ),
-          child: Row(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 110,
-                    margin: const EdgeInsets.only(top: 40, left: 12),
-                    child: Text(
-                      title,
-                      style: const TextStyle(
-                          fontSize: 13, fontWeight: FontWeight.bold),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 5, left: 12),
-                    child: Text(
-                      style: const TextStyle(fontSize: 12),
-                      subtitle,
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 10, left: 12, right: 10),
-                child: IconButton(
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  iconSize: 25,
-                  icon: const Icon(Icons.favorite_border),
-                  onPressed: () {},
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(top: 15, left: 12),
-          decoration: BoxDecoration(
-            color: const Color(0xFFE1E2F8),
-            borderRadius: BorderRadius.circular(5),
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
-          child: Text(
-            day,
-            style: const TextStyle(
-                fontSize: 12,
-                color: Color(0xFF5971F6),
-                fontWeight: FontWeight.bold),
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(top: 15, left: 13),
-          child: Text(
-            job,
-            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(top: 5, left: 13),
-          child: Text(
-            desc,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(color: Colors.grey, fontSize: 13),
-          ),
-        ),
+        projectImgSection(title, subtitle, image),
+        infoSection(title, subtitle, job, desc, day, image),
       ],
     ),
   );
