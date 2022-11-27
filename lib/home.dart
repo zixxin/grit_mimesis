@@ -352,12 +352,120 @@ Widget teams() {
   );
 }
 
+Widget letterCard(
+    Color? color,
+    Color? colorbg,
+    Color? colortxt,
+    String txt1,
+    String txt2,
+    Color? colortitle,
+    String image,
+    double imgSize,
+    double imageLeft,
+    double imageTop) {
+  return Container(
+    width: 300,
+    height: 120,
+    decoration: BoxDecoration(
+      color: color,
+      borderRadius: BorderRadius.circular(10),
+    ),
+    margin: const EdgeInsets.only(top: 15, left: 15, right: 15),
+    padding: const EdgeInsets.only(top: 20, left: 20.0),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Stack(
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                color: colorbg,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 3.0, horizontal: 5.0),
+              child: Text(
+                '#샤프꿀팁',
+                style: TextStyle(
+                    color: colortxt, fontSize: 12, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: imageLeft, top: imageTop),
+              child: Image.asset(image, width: imgSize),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(top: 40),
+                  child: Text(
+                    txt1,
+                    style: TextStyle(
+                        color: colortitle,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 5),
+                  child: Text(
+                    txt2,
+                    style: const TextStyle(color: Colors.grey, fontSize: 13),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ],
+    ),
+  );
+}
+
 Widget letters() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
-      sectionTitle('시작을 다짐했을 때 읽기 좋은 글 ✨'),
-      all(),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          sectionTitle('시작을 다짐했을 때 읽기 좋은 글 ✨'),
+          all(),
+        ],
+      ),
+      SizedBox(
+        width: 1000,
+        height: 140,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            letterCard(
+                Colors.black,
+                const Color(0xFFDBF87A),
+                Colors.black,
+                '호감 가는 첫인상 여든까지 간다.',
+                '샤프를 처음 시작하는 당신에게',
+                Colors.white,
+                'image/80.png',
+                90,
+                175,
+                20),
+            letterCard(
+                Colors.white,
+                Colors.black,
+                const Color(0xFFDBF87A),
+                '사이드 프로젝트, 잘 헤어지기.',
+                '관계와 인연에 대하여',
+                Colors.black,
+                'image/bye.png',
+                80,
+                180,
+                10),
+          ],
+        ),
+      ),
     ],
   );
 }
