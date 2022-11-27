@@ -242,19 +242,19 @@ Widget projectSection() {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
       projects(),
-      divider(),
+      divider(20),
       teams(),
-      divider(),
+      divider(5),
       letters(),
-      divider(),
+      divider(20),
       news(),
     ],
   );
 }
 
-Widget divider() {
+Widget divider(double top) {
   return Container(
-    margin: const EdgeInsets.only(top: 20),
+    margin: EdgeInsets.only(top: top),
     child: const Divider(
       thickness: 12.0,
       color: Color(0xFFF1F1EB),
@@ -342,12 +342,103 @@ Widget projects() {
   );
 }
 
+Widget teamCard(String nickname, String score, String job, String image) {
+  return Container(
+    width: 150,
+    height: 230,
+    decoration: BoxDecoration(
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.3),
+          spreadRadius: 1,
+          blurRadius: 10,
+          offset: const Offset(0, 3),
+        ),
+      ],
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(10),
+    ),
+    margin: const EdgeInsets.only(top: 20, left: 15, bottom: 20),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            Container(
+              width: 80,
+              height: 80,
+              decoration: BoxDecoration(
+                color: const Color(0xFFF1F1EB),
+                borderRadius: BorderRadius.circular(100),
+                image: DecorationImage(
+                  alignment: Alignment.center,
+                  image: AssetImage(image),
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 20),
+              child: Text(
+                nickname,
+                style:
+                    const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 7),
+              decoration: BoxDecoration(
+                color: const Color(0xFFDBF87A),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
+              child: Text(
+                job,
+                style:
+                    const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 7),
+              child: Text(
+                score,
+                style: const TextStyle(color: Colors.grey, fontSize: 13),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+}
+
 Widget teams() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.start,
     children: <Widget>[
-      sectionTitle('팀플 스타일이 비슷한 팀원 🕵🏻‍♂️'),
-      all(),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          sectionTitle('팀플 스타일이 비슷한 팀원 🕵🏻‍♂️'),
+          all(),
+        ],
+      ),
+      SizedBox(
+        width: 1000,
+        height: 250,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            teamCard('콩주워먹는콩벌레', '매너점수 87', 'iOS 개발자', 'image/profile1.png'),
+            teamCard('샤이니랑아는샤이니', '매너점수 96', 'BX 디자이너', 'image/profile2.png'),
+            Container(
+              margin: const EdgeInsets.only(right: 15),
+              child: teamCard(
+                  '뚝고기불배기', '매너점수 88', 'Web 디자이너', 'image/profile3.png'),
+            ),
+          ],
+        ),
+      ),
     ],
   );
 }
@@ -370,7 +461,7 @@ Widget letterCard(
       color: color,
       borderRadius: BorderRadius.circular(10),
     ),
-    margin: const EdgeInsets.only(top: 15, left: 15, right: 15),
+    margin: const EdgeInsets.only(top: 15, left: 15),
     padding: const EdgeInsets.only(top: 20, left: 20.0),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -452,17 +543,20 @@ Widget letters() {
                 90,
                 175,
                 20),
-            letterCard(
-                Colors.white,
-                Colors.black,
-                const Color(0xFFDBF87A),
-                '사이드 프로젝트, 잘 헤어지기.',
-                '관계와 인연에 대하여',
-                Colors.black,
-                'image/bye.png',
-                80,
-                180,
-                10),
+            Container(
+              margin: const EdgeInsets.only(right: 15),
+              child: letterCard(
+                  Colors.white,
+                  Colors.black,
+                  const Color(0xFFDBF87A),
+                  '사이드 프로젝트, 잘 헤어지기.',
+                  '관계와 인연에 대하여',
+                  Colors.black,
+                  'image/bye.png',
+                  80,
+                  180,
+                  10),
+            ),
           ],
         ),
       ),
