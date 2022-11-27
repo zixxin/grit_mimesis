@@ -283,6 +283,43 @@ Widget sectionTitle(String title) {
   );
 }
 
+Widget moreButton() {
+  return Container(
+    alignment: Alignment.center,
+    width: 140,
+    height: 35,
+    decoration: BoxDecoration(
+      color: const Color.fromARGB(255, 242, 242, 242),
+      border: Border.all(
+        color: const Color(0xFFB9B9B9),
+        width: 1,
+      ),
+      borderRadius: BorderRadius.circular(30),
+    ),
+    margin: const EdgeInsets.only(top: 20),
+    padding: const EdgeInsets.only(left: 10.0, right: 15.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        IconButton(
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(),
+          iconSize: 25,
+          icon: const Icon(Icons.refresh),
+          onPressed: () {},
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 8),
+          child: const Text(
+            '더 보고 싶어요',
+            style: TextStyle(color: Color(0xFF5166E4), fontSize: 13),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
 Widget projects() {
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
@@ -298,40 +335,7 @@ Widget projects() {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            alignment: Alignment.center,
-            width: 140,
-            height: 35,
-            decoration: BoxDecoration(
-              color: const Color(0xFFF8F8F8),
-              border: Border.all(
-                color: const Color(0xFFB9B9B9),
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            margin: const EdgeInsets.only(top: 20),
-            padding: const EdgeInsets.only(left: 10.0, right: 15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  iconSize: 25,
-                  icon: const Icon(Icons.refresh),
-                  onPressed: () {},
-                ),
-                Container(
-                  margin: const EdgeInsets.only(left: 8),
-                  child: const Text(
-                    '더 보고 싶어요',
-                    style: TextStyle(color: Color(0xFF5166E4), fontSize: 13),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          moreButton(),
         ],
       ),
     ],
