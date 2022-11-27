@@ -67,6 +67,8 @@ flutter:
     - image/profile1.png
     - image/profile2.png
     - image/profile3.png
+    - image/project1.jpeg
+    - image/project2.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
