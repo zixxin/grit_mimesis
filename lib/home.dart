@@ -153,39 +153,29 @@ Widget titleSection(BuildContext context) {
   );
 }
 
+Widget oneChip(double left, String text) {
+  return Container(
+    decoration: BoxDecoration(
+      border: Border.all(
+        color: const Color(0xFFE2FD7E),
+        width: 1,
+      ),
+      borderRadius: BorderRadius.circular(30),
+    ),
+    margin: EdgeInsets.only(top: 20, left: left),
+    padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 12.0),
+    child: Text(
+      text,
+      style: const TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
+    ),
+  );
+}
+
 Widget chips() {
   return Row(
     children: [
-      Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: const Color(0xFFE2FD7E),
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        margin: const EdgeInsets.only(top: 20, left: 15),
-        padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 12.0),
-        child: const Text(
-          '#출시성공',
-          style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
-        ),
-      ),
-      Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: const Color(0xFFE2FD7E),
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        margin: const EdgeInsets.only(top: 20, left: 8),
-        padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 12.0),
-        child: const Text(
-          '#고생끝에낙이온다',
-          style: TextStyle(color: Color(0xFFEBF98A), fontSize: 13),
-        ),
-      ),
+      oneChip(15, '#출시성공'),
+      oneChip(8, '#고생끝에낙이온다'),
     ],
   );
 }
@@ -272,6 +262,27 @@ Widget divider() {
   );
 }
 
+Widget all() {
+  return Container(
+    margin: const EdgeInsets.only(top: 20, right: 15),
+    child: const Text(
+      '모두보기',
+      style: TextStyle(
+          fontSize: 12, color: Color(0xFFB9B9B9), fontWeight: FontWeight.bold),
+    ),
+  );
+}
+
+Widget sectionTitle(String title) {
+  return Container(
+    margin: const EdgeInsets.only(top: 20, left: 15),
+    child: Text(
+      title,
+      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    ),
+  );
+}
+
 Widget projects() {
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
@@ -280,23 +291,8 @@ Widget projects() {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(top: 20, left: 15),
-            child: const Text(
-              '관심 분야와 역할이 일치하는 프로젝트 💡',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 20, right: 15),
-            child: const Text(
-              '모두보기',
-              style: TextStyle(
-                  fontSize: 12,
-                  color: Color(0xFFB9B9B9),
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
+          sectionTitle('관심 분야와 역할이 일치하는 프로젝트 💡'),
+          all(),
         ],
       ),
       Row(
@@ -346,23 +342,8 @@ Widget teams() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
-      Container(
-        margin: const EdgeInsets.only(top: 20, left: 15),
-        child: const Text(
-          '팀플 스타일이 비슷한 팀원 🕵🏻‍♂️',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(top: 20, right: 15),
-        child: const Text(
-          '모두보기',
-          style: TextStyle(
-              fontSize: 12,
-              color: Color(0xFFB9B9B9),
-              fontWeight: FontWeight.bold),
-        ),
-      ),
+      sectionTitle('팀플 스타일이 비슷한 팀원 🕵🏻‍♂️'),
+      all(),
     ],
   );
 }
@@ -371,24 +352,31 @@ Widget letters() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
-      Container(
-        margin: const EdgeInsets.only(top: 20, left: 15),
-        child: const Text(
-          '시작을 다짐했을 때 읽기 좋은 글 ✨',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(top: 20, right: 15),
-        child: const Text(
-          '모두보기',
-          style: TextStyle(
-              fontSize: 12,
-              color: Color(0xFFB9B9B9),
-              fontWeight: FontWeight.bold),
-        ),
-      ),
+      sectionTitle('시작을 다짐했을 때 읽기 좋은 글 ✨'),
+      all(),
     ],
+  );
+}
+
+Widget newsDivider(double top) {
+  return Container(
+    margin: EdgeInsets.only(top: top),
+    child: const Divider(
+      thickness: 1.0,
+      indent: 15.0,
+      endIndent: 15.0,
+      color: Color(0xFFECECEC),
+    ),
+  );
+}
+
+Widget newsContents(String news) {
+  return Container(
+    margin: const EdgeInsets.only(top: 3, left: 15),
+    child: Text(
+      news,
+      style: const TextStyle(fontSize: 13),
+    ),
   );
 }
 
@@ -400,89 +388,18 @@ Widget news() {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(top: 20, left: 15),
-            child: const Text(
-              '추천 뉴스 🗞',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 20, right: 15),
-            child: const Text(
-              '모두보기',
-              style: TextStyle(
-                  fontSize: 12,
-                  color: Color(0xFFB9B9B9),
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
+          sectionTitle('추천 뉴스 🗞'),
+          all(),
         ],
       ),
-      Container(
-        margin: const EdgeInsets.only(top: 10),
-        child: const Divider(
-          thickness: 1.0,
-          indent: 15.0,
-          endIndent: 15.0,
-          color: Color(0xFFECECEC),
-        ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(top: 3, left: 15),
-        child: const Text(
-          'AI 전화 앱 \'비토\' 160억 시리즈B 투자 유치',
-          style: TextStyle(fontSize: 13),
-        ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(top: 3),
-        child: const Divider(
-          thickness: 1.0,
-          indent: 15.0,
-          endIndent: 15.0,
-          color: Color(0xFFECECEC),
-        ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(top: 3, left: 15),
-        child: const Text(
-          '휴가철 집단속 걱정, IOT 기반 스마트홈이 해답',
-          style: TextStyle(fontSize: 13),
-        ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(top: 3),
-        child: const Divider(
-          thickness: 1.0,
-          indent: 15.0,
-          endIndent: 15.0,
-          color: Color(0xFFECECEC),
-        ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(top: 3, left: 15),
-        child: const Text(
-          '네이버, 물류 풀필먼트 플랫폼 \'NFA\' 오픈',
-          style: TextStyle(fontSize: 13),
-        ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(top: 3),
-        child: const Divider(
-          thickness: 1.0,
-          indent: 15.0,
-          endIndent: 15.0,
-          color: Color(0xFFECECEC),
-        ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(top: 3, left: 15),
-        child: const Text(
-          '격동의 하반기 앞둔 배달, 부동산, 여행 스타트업',
-          style: TextStyle(fontSize: 13),
-        ),
-      ),
+      newsDivider(10),
+      newsContents('AI 전화 앱 \'비토\' 160억 시리즈B 투자 유치'),
+      newsDivider(3),
+      newsContents('휴가철 집단속 걱정, IOT 기반 스마트홈이 해답'),
+      newsDivider(3),
+      newsContents('네이버, 물류 풀필먼트 플랫폼 \'NFA\' 오픈'),
+      newsDivider(3),
+      newsContents('격동의 하반기 앞둔 배달, 부동산, 여행 스타트업'),
     ],
   );
 }
